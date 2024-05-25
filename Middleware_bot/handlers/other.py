@@ -11,6 +11,7 @@ logger = logging.getLogger(__name__)
 @other_router.message(TrueFilter())
 async def send_echo(message:Message):
     logger.debug('Вы вошли в эхо-хэндлер')
+    
     try:
         await message.send_copy(chat_id=message.from_user.id)
     except TypeError:
